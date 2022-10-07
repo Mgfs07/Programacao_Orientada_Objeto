@@ -1,10 +1,23 @@
 package guerreiros.atlantes.tipos;
 
+import guerreiros.Guerreiro;
 import guerreiros.atlantes.Atlantes;
 
+import java.util.List;
+
 public class Prometeano extends Atlantes {
-    public Prometeano(String nome, Integer idade, Double peso) {
+    public Prometeano(String nome, Integer idade, Integer peso) {
         super(nome, idade, peso);
+    }
+
+    @Override
+    public void ataque(List<Guerreiro> ladoAliado, List<Guerreiro> ladoAdversario) {
+
+    }
+
+    @Override
+    public void setDano(Integer dano) {
+        super.setDano(10);
     }
 
     /*

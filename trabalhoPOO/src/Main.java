@@ -1,16 +1,25 @@
 import guerreiros.Guerreiro;
-import guerreiros.grego.tipos.Ciclope;
-import guerreiros.grego.tipos.Hidra;
 
-import java.util.ArrayList;
+import java.io.IOException;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
-        List<Guerreiro> guerreiro =  new ArrayList<>();
+        String lado1 = "src/arquivos/lado1.txt";
+        String lado2 = "src/arquivos/lado2.txt";
 
-        System.out.println(guerreiro.getClass());
+        List<Guerreiro> ld1 =  LeitorDeArquivo.leitor(lado2, false);
+//        List<Guerreiro> ld2 =  LeitorDeArquivo.leitor(lado2, false);
+
+        System.out.println(ld1);
+//        LeitorDeArquivo.leitor(lado2);
+
+//        List<Guerreiro> guerreiro =  new ArrayList<>();
+//        Ciclope ciclope = new Ciclope("teste", 20, 20.50);
+//        guerreiro.add(ciclope);
+//        guerreiro.forEach(u -> u.ataque(guerreiro));
+//        System.out.println(guerreiro.getClass());
 
     }
 }

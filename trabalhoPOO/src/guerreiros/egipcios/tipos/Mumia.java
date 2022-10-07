@@ -3,8 +3,13 @@ package guerreiros.egipcios.tipos;
 import guerreiros.egipcios.Egipcios;
 
 public class Mumia extends Egipcios {
-    public Mumia(String nome, Integer idade, Double peso) {
+    public Mumia(String nome, Integer idade, Integer peso) {
         super(nome, idade, peso);
+    }
+
+    @Override
+    public void setDano(Integer dano) {
+        super.setDano(50);
     }
 
     /*

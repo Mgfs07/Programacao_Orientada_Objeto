@@ -3,8 +3,13 @@ package guerreiros.grego.tipos;
 import guerreiros.grego.Grego;
 
 public class Ciclope extends Grego {
-    public Ciclope(String nome, Integer idade, Double peso) {
+    public Ciclope(String nome, Integer idade, Integer peso) {
         super(nome, idade, peso);
+    }
+
+    @Override
+    public void setDano(Integer dano) {
+        super.setDano(40);
     }
 
     /*

@@ -2,9 +2,16 @@ package guerreiros.nordicos;
 
 import guerreiros.Guerreiro;
 
-public class Nordicos extends Guerreiro {
+import java.util.List;
 
-    public Nordicos(String nome, Integer idade, Double peso) {
+public abstract class Nordicos extends Guerreiro {
+
+    protected Nordicos(String nome, Integer idade, Integer peso) {
         super(nome, idade, peso);
+    }
+
+    @Override
+    public void ataque(List<Guerreiro> ladoAliado, List<Guerreiro> ladoAdversario) {
+        System.out.println("Um Nórdico esta atacando");
     }
 }

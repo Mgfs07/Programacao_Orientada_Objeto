@@ -3,8 +3,13 @@ package guerreiros.grego.tipos;
 import guerreiros.grego.Grego;
 
 public class Hidra extends Grego {
-    public Hidra(String nome, Integer idade, Double peso) {
+    public Hidra(String nome, Integer idade, Integer peso) {
         super(nome, idade, peso);
+    }
+
+    @Override
+    public void setDano(Integer dano) {
+        super.setDano(50);
     }
 
     /*

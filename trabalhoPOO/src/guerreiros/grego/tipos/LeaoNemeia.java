@@ -3,7 +3,7 @@ package guerreiros.grego.tipos;
 import guerreiros.grego.Grego;
 
 public class LeaoNemeia extends Grego {
-    public LeaoNemeia(String nome, Integer idade, Double peso) {
+    public LeaoNemeia(String nome, Integer idade, Integer peso) {
         super(nome, idade, peso);
     }
 

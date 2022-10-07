@@ -1,10 +1,24 @@
 package guerreiros.atlantes.tipos;
 
+import guerreiros.Guerreiro;
 import guerreiros.atlantes.Atlantes;
 
+import java.util.List;
+
 public class Satiro extends Atlantes {
-    public Satiro(String nome, Integer idade, Double peso) {
+    public Satiro(String nome, Integer idade, Integer peso) {
         super(nome, idade, peso);
+    }
+
+    @Override
+    public void ataque(List<Guerreiro> ladoAliado, List<Guerreiro> ladoAdversario) {
+        super.ataque(ladoAliado, ladoAdversario);
+        ladoAdversario.forEach(u -> setEnergia(u.getEnergia() - 5));
+    }
+
+    @Override
+    public void setDano(Integer dano) {
+        super.setDano(5);
     }
 
     /*

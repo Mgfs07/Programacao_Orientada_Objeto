@@ -1,10 +1,18 @@
 package guerreiros.nordicos.tipos;
 
+import guerreiros.Guerreiro;
 import guerreiros.nordicos.Nordicos;
 
+import java.util.List;
+
 public class LoboFenris extends Nordicos {
-    public LoboFenris(String nome, Integer idade, Double peso) {
+    public LoboFenris(String nome, Integer idade, Integer peso) {
         super(nome, idade, peso);
+    }
+
+    @Override
+    public void ataque(List<Guerreiro> ladoAliado, List<Guerreiro> ladoAdversario) {
+
     }
 
     /*
