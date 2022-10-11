@@ -1,6 +1,9 @@
 package guerreiros.egipcios.tipos;
 
+import guerreiros.Guerreiro;
 import guerreiros.egipcios.Egipcios;
+
+import java.util.List;
 
 public class Mumia extends Egipcios {
     public Mumia(String nome, Integer idade, Integer peso) {
@@ -10,6 +13,25 @@ public class Mumia extends Egipcios {
     @Override
     public void setDano(Integer dano) {
         super.setDano(50);
+    }
+
+    @Override
+    public void ataque(List<Guerreiro> ladoAliado, List<Guerreiro> ladoAdversario) {
+        super.ataque(ladoAliado, ladoAdversario);
+    }
+
+    @Override
+    public void morte(List<Guerreiro> lista, Integer posicao) {
+        if (lista.get(posicao).getEnergia() <= 0) {
+            removerDaFila(lista, posicao);
+        }else{
+            enviarGuerreiroFinalFila(lista, lista.get(PRIMEIRA_POSICAO));
+        }
+    }
+
+    private void criarMortoVivo(List<Guerreiro> ladoAliado, List<Guerreiro> ladoAdversario) {
+        int indice = 0;
+        MortoVivo mortoVivo = new MortoVivo()
     }
 
     /*

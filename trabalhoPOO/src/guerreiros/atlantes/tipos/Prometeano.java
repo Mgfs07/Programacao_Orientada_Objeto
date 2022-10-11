@@ -12,12 +12,26 @@ public class Prometeano extends Atlantes {
 
     @Override
     public void ataque(List<Guerreiro> ladoAliado, List<Guerreiro> ladoAdversario) {
-
+        super.ataque(ladoAliado, ladoAdversario);
     }
 
     @Override
     public void setDano(Integer dano) {
         super.setDano(10);
+    }
+
+    @Override
+    public void morte(List<Guerreiro> lista, Integer posicao) {
+        Prometeano prometeano = (Prometeano) lista.get(PRIMEIRA_POSICAO);
+        Guerreiro prometeano1 = new Prometeano(gerarNomePrometeano(), prometeano.getIdade(), prometeano.getPeso());
+        Guerreiro prometeano2 = new Prometeano(gerarNomePrometeano(), prometeano.getIdade(), prometeano.getPeso());
+        enviarGuerreiroFinalFila(lista, prometeano1);
+        enviarGuerreiroFinalFila(lista, prometeano2);
+    }
+
+    private String gerarNomePrometeano(){
+        int indice = 0;
+        return "Prometeano Descentende " + ++indice;
     }
 
     /*

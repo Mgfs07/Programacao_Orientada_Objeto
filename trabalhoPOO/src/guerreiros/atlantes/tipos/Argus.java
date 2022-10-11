@@ -14,7 +14,7 @@ public class Argus extends Atlantes {
     @Override
     public void ataque(List<Guerreiro> ladoAliado, List<Guerreiro> ladoAdversario) {
         enviarGuerreiroFinalFila(ladoAliado, ladoAliado.get(0));
-        removerDaFila(ladoAdversario);
+        removerDaFila(ladoAdversario, PRIMEIRA_POSICAO);
     }
 
     @Override

@@ -11,7 +11,7 @@ public abstract class Guerreiro {
     private Integer dano;
 
     protected Guerreiro(String nome, Integer idade,
-                     Integer peso) {
+                        Integer peso) {
         this.nome = nome;
         this.idade = idade;
         this.peso = peso;
@@ -59,18 +59,44 @@ public abstract class Guerreiro {
         this.dano = dano;
     }
 
-    public void ataque(List<Guerreiro> ladoAliado , List<Guerreiro> ladoAdversario){
-        ladoAdversario.get(0).setEnergia(getEnergia() - this.dano);
-        enviarGuerreiroFinalFila(ladoAdversario, ladoAdversario.get(0));
-        enviarGuerreiroFinalFila(ladoAliado, ladoAliado.get(0));
+    public static final Integer PRIMEIRA_POSICAO = 0;
+    public static final Integer SEGUNDA_POSICAO = 1;
+    public static final Integer TERCEIRA_POSICAO = 2;
+
+    public void ataque(List<Guerreiro> ladoAliado, List<Guerreiro> ladoAdversario) {
+        tirarEnergiaAdversario(ladoAdversario, PRIMEIRA_POSICAO);
+        tirarEnergiaAdversario(ladoAliado, PRIMEIRA_POSICAO);
+//        morte(ladoAdversario);
+//        morte(ladoAliado);
     }
 
-    public void enviarGuerreiroFinalFila(List<Guerreiro> lista, Guerreiro guerreiro){
-        lista.set(lista.size() - 1, guerreiro);
-        removerDaFila(lista);
+    public void tirarEnergiaAdversario(List<Guerreiro> ladoAtacado, Integer posicao) {
+        ladoAtacado.get(posicao).setEnergia(ladoAtacado.get(posicao).getEnergia() - this.dano);
+        morte(ladoAtacado, posicao);
     }
 
-    public void removerDaFila(List<Guerreiro> lista){
-        lista.remove(lista.get(0));
+
+    public void enviarGuerreiroFinalFila(List<Guerreiro> lista, Guerreiro guerreiro) {
+        lista.set(ultimoLista(lista), guerreiro);
+        removerDaFila(lista, PRIMEIRA_POSICAO);
+    }
+
+    public void removerDaFila(List<Guerreiro> lista, Integer posicao) {
+        lista.remove(lista.get(posicao));
+    }
+
+    public void morte(List<Guerreiro> lista, Integer posicao) {
+        if (lista.get(posicao).getEnergia() <= 0) {
+            removerDaFila(lista, posicao);
+        }else{
+            if(posicao.equals(PRIMEIRA_POSICAO)){
+                enviarGuerreiroFinalFila(lista, lista.get(PRIMEIRA_POSICAO));
+            }
+        }
+    }
+
+
+    public Integer ultimoLista(List<Guerreiro> lista){
+        return lista.size() - 1;
     }
 }

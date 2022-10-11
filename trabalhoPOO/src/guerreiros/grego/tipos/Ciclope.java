@@ -1,6 +1,9 @@
 package guerreiros.grego.tipos;
 
+import guerreiros.Guerreiro;
 import guerreiros.grego.Grego;
+
+import java.util.List;
 
 public class Ciclope extends Grego {
     public Ciclope(String nome, Integer idade, Integer peso) {
@@ -10,6 +13,11 @@ public class Ciclope extends Grego {
     @Override
     public void setDano(Integer dano) {
         super.setDano(40);
+    }
+
+    @Override
+    public void ataque(List<Guerreiro> ladoAliado, List<Guerreiro> ladoAdversario) {
+        tirarEnergiaAdversario(ladoAdversario, PRIMEIRA_POSICAO);
     }
 
     /*

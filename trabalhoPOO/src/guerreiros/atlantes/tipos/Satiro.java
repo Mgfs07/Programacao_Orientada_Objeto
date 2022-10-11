@@ -12,7 +12,8 @@ public class Satiro extends Atlantes {
 
     @Override
     public void ataque(List<Guerreiro> ladoAliado, List<Guerreiro> ladoAdversario) {
-        super.ataque(ladoAliado, ladoAdversario);
+        enviarGuerreiroFinalFila(ladoAliado, ladoAliado.get(0));
+        enviarGuerreiroFinalFila(ladoAdversario, ladoAliado.get(0));
         ladoAdversario.forEach(u -> setEnergia(u.getEnergia() - 5));
     }
 
